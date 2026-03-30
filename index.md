@@ -1,10 +1,94 @@
-# GCP Self-Learning Documentation
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Journey | Developer Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-Hi, I'm Reza. These are my notes from learning Google Cloud Platform.
+    <header class="navbar">
+        <div class="logo">☁️ Cloud.Dev</div>
+        <nav>
+            <button class="nav-btn active" data-target="home">Home</button>
+            <button class="nav-btn" data-target="roadmap">Roadmap</button>
+            <button class="nav-btn" data-target="logs">Logs</button>
+            <button class="nav-btn" data-target="projects">Projects</button>
+            <button class="nav-btn" data-target="concepts">Concepts</button>
+            <button class="nav-btn" data-target="about">About</button>
+            <button class="nav-btn" data-target="contact">Contact</button>
+        </nav>
+        <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+    </header>
 
-## Table of Contents
-- [Creating VMs and SSH](./vm-ssh.md)
-- [Making a Private Instance](./private-vm.md)
-- [Next topic...](./another-guide.md)
+    <main id="app-content">
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h1>Hello, I'm an aspiring <span class="highlight">Cloud Engineer</span>.</h1>
+                <p>Documenting my journey from Level 0 to 100 in Linux, Networking, and Cloud Architecture.</p>
+                <div class="status-badge">Current Status: Level 1 (Cloud Basics)</div>
+            </div>
+        </section>
 
-Feel free to use these notes!
+        <section id="roadmap" class="page-section hidden">
+            <h2>Learning Roadmap</h2>
+            <div id="roadmap-container" class="timeline"></div>
+        </section>
+
+        <section id="logs" class="page-section hidden">
+            <h2>Learning Logs</h2>
+            <div class="controls">
+                <input type="text" id="search-logs" placeholder="Search logs...">
+                <select id="tag-filter">
+                    <option value="all">All Tags</option>
+                    <option value="Linux">Linux</option>
+                    <option value="Cloud">Cloud</option>
+                    <option value="Terraform">Terraform</option>
+                </select>
+            </div>
+            <div id="logs-container" class="grid-layout"></div>
+        </section>
+
+        <section id="projects" class="page-section hidden">
+            <h2>Projects</h2>
+            <div id="projects-container" class="grid-layout"></div>
+        </section>
+
+        <section id="concepts" class="page-section hidden">
+            <h2>Concepts Library</h2>
+            <div id="concepts-container" class="grid-layout"></div>
+        </section>
+
+        <section id="about" class="page-section hidden">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>I am a first-year IT student with a passion for infrastructure and automation. I chose Cloud Computing because I love understanding how the internet works under the hood, from bare-metal servers to serverless architectures.</p>
+                <p><strong>Goals for this year:</strong> Master Linux CLI, achieve my first Cloud Certification, and build a fully automated CI/CD pipeline.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="page-section hidden">
+            <h2>Contact</h2>
+            <div class="card">
+                <p>Feel free to reach out for collaboration or just to talk tech!</p>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Form submitted! (Frontend only)');">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
