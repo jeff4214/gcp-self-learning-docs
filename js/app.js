@@ -73,20 +73,29 @@ const roadmapLevels = [
         class: "status-completed"
     },
     {
-        id: 3,
-        title: "LEVEL 3 — Terraform (Current)",
-        goal: "Automate infrastructure using code.",
-        learned: [
-            "Terraform basics",
-            "Writing .tf files",
-            "Authentication with Google Cloud",
-            "Infrastructure as Code (IaC)"
-        ],
-        skills: ["Writing Terraform configs", "Automating VM creation", "Managing infrastructure with code"],
-        status: "In Progress 🔄",
-        class: "status-in-progress",
-        isCurrent: true 
-    },
+    id: 3,
+    title: "LEVEL 3 — Automation with Terraform (Current)",
+    goal: "Automate cloud infrastructure using code instead of manual configuration.",
+    learned: [
+        "Writing Terraform configuration files (.tf)",
+        "Connecting Terraform to Google Cloud",
+        "Defining virtual machines and network resources using code",
+        "Understanding Infrastructure as Code (IaC) concepts",
+        "Rebuilding manual infrastructure using Terraform"
+    ],
+    skills: ["Terraform Configs", "Providers & Resources", "init/plan/apply", "IaC Automation"],
+    proof: [
+        "Installed and configured Terraform locally",
+        "Authenticated Terraform with Google Cloud",
+        "Created first Terraform configuration (main.tf)",
+        "Planned and applied infrastructure changes using CLI",
+        "Started rebuilding manual setup using code"
+    ],
+    project: "🚀 Current Focus: Rebuilding my bastion architecture (public VM + private VM + firewall rules) using Terraform",
+    status: "In Progress 🔄",
+    class: "status-in-progress",
+    isCurrent: true
+}
     {
         id: 4,
         title: "LEVEL 4 — Advanced Cloud (Future)",
