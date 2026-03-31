@@ -57,7 +57,7 @@ const roadmapLevels = [
         skills: ["Writing Terraform configs", "Automating VM creation", "Managing infrastructure with code"],
         status: "In Progress 🔄",
         class: "status-in-progress",
-        isCurrent: true // This adds the highlight/glow effect
+        isCurrent: true 
     },
     {
         id: 4,
@@ -75,153 +75,58 @@ const roadmapLevels = [
     }
 ];
 
-// Update your render function to use these new fields
-function renderRoadmap() {
-    const container = document.getElementById('roadmap-timeline');
-    container.innerHTML = roadmapLevels.map(lvl => `
-        <div class="level-card ${lvl.isCurrent ? 'current-glow' : ''}">
-            <div class="card-content">
-                <h3>${lvl.title}</h3>
-                <p><strong>🎯 Goal:</strong> ${lvl.goal}</p>
-                <p><strong>📚 What I Learned:</strong></p>
-                <ul>${lvl.learned.map(item => `<li>${item}</li>`).join('')}</ul>
-                <p><strong>🛠️ Key Skills:</strong></p>
-                <div class="skills-list">${lvl.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
-                ${lvl.project ? `<p><strong>🏗️ Project:</strong> ${lvl.project}</p>` : ''}
-                <p class="status-text"><strong>📍 Status:</strong> <span class="${lvl.class}">${lvl.status}</span></p>
-            </div>
-        </div>
-    `).join('');
-}
-
-renderRoadmap();
-
 const logsData = [
     { 
         title: "🟢 Post 1: Getting Started with Google Cloud", 
         tags: ["GCP", "CLI"], 
-        content: `
-            <p>I started by learning how to use the gcloud CLI and basic cloud setup. This helped me understand how to manage cloud resources from the terminal instead of using the web interface.</p>
-            <p><strong>Key commands I learned:</strong></p>
-            <ul>
-                <li><code>gcloud init</code></li>
-                <li><code>gcloud auth login</code></li>
-                <li><code>gcloud compute instances list</code></li>
-            </ul>
-        `
+        content: `<p>I started by learning how to use the gcloud CLI and basic cloud setup...</p>`
     },
     { 
         title: "🟡 Post 2: Creating Virtual Machines in GCP", 
-        tags: ["GCP", "Compute Engine", "Ubuntu"], 
-        content: `
-            <p>I created my first VM using a <strong>Machine type: e2-micro</strong> (free tier) and an <strong>Ubuntu OS</strong>. This gave me a Linux server running in the cloud.</p>
-        `,
-        snippet: `gcloud compute instances create [INSTANCE_NAME] \\
---zone=[ZONE] \\
---image-family=ubuntu-2204-lts \\
---image-project=ubuntu-os-cloud`
+        tags: ["GCP", "Compute Engine"], 
+        content: `<p>I created my first VM using a Machine type: e2-micro...</p>`,
+        snippet: `gcloud compute instances create [INSTANCE_NAME] --zone=[ZONE] --image-family=ubuntu-2204-lts --image-project=ubuntu-os-cloud`
     },
     { 
         title: "🛡️ Post 3: Building a Secure Bastion Architecture", 
-        tags: ["Architecture", "Security", "Networking"], 
-        content: `
-            <p>I created two virtual machines:</p>
-            <ul>
-                <li><strong>reza-linux-vm</strong> &rarr; Public VM (bastion)</li>
-                <li><strong>jeff-linux-vm</strong> &rarr; Private VM</li>
-            </ul>
-            <p><strong>Goal:</strong> Only allow access to the private VM through the public VM.</p>
-            <p><strong>Architecture Flow:</strong><br> Laptop &rarr; reza-linux-vm &rarr; jeff-linux-vm</p>
-        `
+        tags: ["Architecture", "Security"], 
+        content: `<p>I created two virtual machines: reza-linux-vm and jeff-linux-vm...</p>`
     },
     { 
-        title: "🐛 Post 4: Debugging SSH 'Permission Denied (publickey)'", 
+        title: "🐛 Post 4: Debugging SSH 'Permission Denied'", 
         tags: ["SSH", "Troubleshooting"], 
-        content: `
-            <p>I faced an error when trying to connect from the public VM to the private VM: <code>Permission denied (publickey)</code>.</p>
-            <p><strong>What I learned:</strong></p>
-            <ul>
-                <li>SSH requires matching public + private keys.</li>
-                <li>Default keys are not always used automatically.</li>
-            </ul>
-            <p><strong>Solution:</strong> I explicitly pointed to the key using the command below. Later, I improved it using SSH config.</p>
-        `,
+        content: `<p>I faced an error when trying to connect... matching keys required.</p>`,
         snippet: `ssh -i ~/.ssh/google_compute_engine jeff@10.128.0.3`
     },
     { 
-        title: "⚙️ Post 5: Using SSH Config for Cleaner Access", 
+        title: "⚙️ Post 5: Using SSH Config", 
         tags: ["SSH", "Linux"], 
-        content: `
-            <p>Instead of typing long commands, I created an SSH config file at <code>~/.ssh/config</code>. Now I can simply run: <code>ssh jeff-private</code>.</p>
-        `,
-        snippet: `Host jeff-private
-    HostName 10.128.0.3
-    User jeff
-    IdentityFile ~/.ssh/mykey`
+        content: `<p>Created ~/.ssh/config for cleaner access.</p>`,
+        snippet: `Host jeff-private\n  HostName 10.128.0.3\n  User jeff`
     },
     { 
         title: "🔒 Post 6: Making My Private VM Truly Private", 
-        tags: ["Security", "GCP", "Firewall"], 
-        content: `
-            <p><strong>Steps taken:</strong></p>
-            <ol>
-                <li>Removed external IP from <code>jeff-linux-vm</code></li>
-                <li>Created a firewall rule to allow SSH <em>only</em> from <code>reza-linux-vm</code></li>
-                <li>Added network tag: <code>private-vm</code></li>
-            </ol>
-            <p><strong>Result:</strong></p>
-            <ul>
-                <li>Internet ❌ &rarr; jeff-linux-vm</li>
-                <li>reza-linux-vm ✅ &rarr; jeff-linux-vm</li>
-            </ul>
-            <p>This is a real-world secure setup!</p>
-        `
+        tags: ["Security", "GCP"], 
+        content: `<p>Removed external IP and added firewall rules.</p>`
     },
     { 
         title: "🏗️ Post 7: Starting Terraform", 
-        tags: ["Terraform", "IaC", "Automation"], 
-        content: `
-            <p>I began learning Terraform to automate my infrastructure. My goal is to rebuild my entire Bastion architecture using code.</p>
-            <p><strong>Steps:</strong></p>
-            <ul>
-                <li>Installed Terraform</li>
-                <li>Authenticated with Google Cloud</li>
-                <li>Created first configuration file (<code>main.tf</code>)</li>
-            </ul>
-        `
+        tags: ["Terraform", "IaC"], 
+        content: `<p>Installed Terraform and created main.tf.</p>`
     }
 ];
 
 const projectsData = [
     { 
         title: "Bastion Host Architecture (GCP)", 
-        desc: `
-            <p><strong>Description:</strong> I built a secure cloud environment using a public and private VM.</p>
-            <br>
-            <p><strong>Components:</strong></p>
-            <ul>
-                <li>Public VM (reza-linux-vm)</li>
-                <li>Private VM (jeff-linux-vm)</li>
-                <li>Firewall rules & SSH key authentication</li>
-            </ul>
-            <br>
-            <p><strong>Security Features:</strong></p>
-            <ul>
-                <li>Private VM has no external IP</li>
-                <li>SSH access restricted to bastion only</li>
-            </ul>
-            <br>
-            <p><strong>Architecture:</strong> Laptop &rarr; Public VM &rarr; Private VM</p>
-            <br>
-            <p><strong>Skills Learned:</strong> SSH key management, Firewall rules, Cloud networking.</p>
-        `
+        desc: `<p>I built a secure cloud environment using a public and private VM.</p>`
     }
 ];
 
 const conceptsData = [
-    { title: "VPC (Virtual Private Cloud)", desc: "A private network space in the cloud where you can launch resources securely." },
-    { title: "IAM", desc: "Identity and Access Management - Controls WHO can do WHAT in your cloud." },
-    { title: "Bastion Host", desc: "A special purpose computer on a network specifically designed and configured to withstand attacks, used as a gateway to private networks." }
+    { title: "VPC", desc: "Private network space in the cloud." },
+    { title: "IAM", desc: "Identity and Access Management." },
+    { title: "Bastion Host", desc: "Gateway to private networks." }
 ];
 
 // --- 2. Navigation Logic ---
@@ -251,27 +156,34 @@ themeBtn.addEventListener('click', () => {
 });
 
 // --- 4. Render Functions ---
-function renderRoadmap() {
-    const container = document.getElementById('roadmap-container');
-    container.innerHTML = roadmapData.map(item => {
-        let borderColor = 'var(--border)';
-        if (item.status === 'completed') borderColor = '#28a745'; // Green
-        if (item.status === 'current') borderColor = 'var(--accent)'; // Blue
-        if (item.status === 'in-progress') borderColor = '#ffc107'; // Yellow
 
-        return `
-        <div class="card" style="border-left: 4px solid ${borderColor}">
-            <h3>Level ${item.level}: ${item.title} 
-                <span class="tag">${item.status.toUpperCase()}</span>
-            </h3>
-            <p>${item.desc}</p>
+// FIXED: Uses roadmapLevels variable and the correct ID for the container
+function renderRoadmap() {
+    const container = document.getElementById('roadmap-timeline'); 
+    if(!container) return; // Guard clause
+
+    container.innerHTML = roadmapLevels.map(lvl => `
+        <div class="level-card ${lvl.isCurrent ? 'current-glow' : ''}">
+            <div class="card-content">
+                <h3>${lvl.title}</h3>
+                <p><strong>🎯 Goal:</strong> ${lvl.goal}</p>
+                <p><strong>📚 What I Learned:</strong></p>
+                <ul>${lvl.learned.map(item => `<li>${item}</li>`).join('')}</ul>
+                <p><strong>🛠️ Key Skills:</strong></p>
+                <div class="skills-list">
+                    ${lvl.skills.map(s => `<span class="tag" style="background:var(--border); padding:2px 8px; border-radius:4px; font-size:0.8rem; margin-right:5px;">${s}</span>`).join('')}
+                </div>
+                ${lvl.project ? `<p><strong>🏗️ Project:</strong> ${lvl.project}</p>` : ''}
+                <p class="status-text"><strong>📍 Status:</strong> <span class="${lvl.class}">${lvl.status}</span></p>
+            </div>
         </div>
-        `;
-    }).join('');
+    `).join('');
 }
 
 function renderLogs(filter = 'all', searchQuery = '') {
     const container = document.getElementById('logs-container');
+    if(!container) return;
+
     const filteredLogs = logsData.filter(log => {
         const matchesTag = filter === 'all' || log.tags.includes(filter);
         const matchesSearch = log.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -289,33 +201,35 @@ function renderLogs(filter = 'all', searchQuery = '') {
         </div>
     `).join('');
     
-    // Trigger Prism to highlight newly injected code blocks (if loaded)
-    if (window.Prism) {
-        Prism.highlightAll();
-    }
+    if (window.Prism) { Prism.highlightAll(); }
 }
 
 function renderSimpleCards(dataArray, containerId) {
     const container = document.getElementById(containerId);
+    if(!container) return;
     container.innerHTML = dataArray.map(item => `
         <div class="card">
             <h3>${item.title}</h3>
             <div>${item.desc}</div>
-            ${item.tech ? `<br><small><strong>Tech:</strong> ${item.tech}</small>` : ''}
         </div>
     `).join('');
 }
 
 // --- 5. Event Listeners for Filtering ---
-document.getElementById('tag-filter').addEventListener('change', (e) => {
-    const query = document.getElementById('search-logs').value;
-    renderLogs(e.target.value, query);
-});
+const tagFilter = document.getElementById('tag-filter');
+const searchInput = document.getElementById('search-logs');
 
-document.getElementById('search-logs').addEventListener('input', (e) => {
-    const tag = document.getElementById('tag-filter').value;
-    renderLogs(tag, e.target.value);
-});
+if(tagFilter) {
+    tagFilter.addEventListener('change', (e) => {
+        renderLogs(e.target.value, searchInput.value);
+    });
+}
+
+if(searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        renderLogs(tagFilter.value, e.target.value);
+    });
+}
 
 // --- 6. Initialize App ---
 renderRoadmap();
