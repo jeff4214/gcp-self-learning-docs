@@ -10,6 +10,16 @@
 </head>
 <body>
 
+    <div class="linux-interactive-bg">
+        <svg class="tux-logo" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M220.8 123.3c1 .5 1.8 1.7 1.3 2.8l-11 20.1c-.4 1-1.8 1.5-2.8 1.1-1-.5-1.8-1.7-1.3-2.8l11-20.1c.4-1.1 1.8-1.6 2.8-1.1zm70.9 28.5c-11.4-14.4-32-15.6-45.6-2.6-13.6 13-14.8 34.6-2.6 47.2 12.1 12.6 33.7 13.3 46.8.6 13.2-12.7 12.8-30.8 1.4-45.2zM153.3 123.3c-1 .5-1.8 1.7-1.3 2.8l11 20.1c.4 1 1.8 1.5 2.8 1.1 1-.5 1.8-1.7 1.3-2.8l-11-20.1c-.4-1.1-1.8-1.6-2.8-1.1zm-70.9 28.5c11.4-14.4 32-15.6 45.6-2.6 13.6 13 14.8 34.6 2.6 47.2-12.1 12.6-33.7 13.3-46.8.6-13.2-12.7-12.8-30.8-1.4-45.2zM223.9 416c-100.6 0-182.1-70.8-182.1-158.2 0-25.2 6.6-49 18.5-70.5 5.9-10.7 14-20.5 23.9-29.2 14.2-12.5 32.1-22.1 52.1-28.1 20.1-6 42.1-9.1 65.5-9.1s45.4 3.1 65.5 9.1c20 6 37.9 15.6 52.1 28.1 9.9 8.7 18 18.5 23.9 29.2 11.9 21.5 18.5 45.3 18.5 70.5 0 87.4-81.5 158.2-182.1 158.2z" fill="currentColor"/>
+        </svg>
+        <div class="packet p1"></div>
+        <div class="packet p2"></div>
+        <div class="packet p3"></div>
+        <div class="packet p4"></div>
+    </div>
+
     <header class="navbar">
         <div class="logo">☁️ Cloud.Dev</div>
         <nav>
@@ -26,76 +36,77 @@
 
     <main id="app-content">
         <section id="home" class="page-section active">
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Hello, I'm <span class="highlight">Jeff</span>.</h1>
-            <p class="hero-subtitle">First-year IT Student & Aspiring Cloud Engineer</p>
-            <p>I build secure, automated infrastructure on Google Cloud and document every step of the journey.</p>
-            
-            <div class="hero-btns">
-                <button class="btn primary-btn" onclick="document.querySelector('[data-target=roadmap]').click()">View Roadmap</button>
-                <button class="btn secondary-btn" onclick="document.querySelector('[data-target=contact]').click()">Get In Touch</button>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Hello, I'm <span class="highlight">Reza</span>.</h1>
+                    <p class="hero-subtitle">First-year IT Student & Aspiring Cloud Engineer</p>
+                    <p>I build secure, automated infrastructure on Google Cloud and document every step of the journey.</p>
+                    
+                    <div class="hero-btns">
+                        <button class="btn primary-btn" onclick="document.querySelector('[data-target=roadmap]').click()">View Roadmap</button>
+                        <button class="btn secondary-btn" onclick="document.querySelector('[data-target=contact]').click()">Get In Touch</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="stats-grid">
-        <div class="stat-card">
-            <span class="stat-value">Level 3</span>
-            <span class="stat-label">Current Progress</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-value">7</span>
-            <span class="stat-label">Learning Logs</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-value">Ubuntu</span>
-            <span class="stat-label">Main OS</span>
-        </div>
-    </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value">Level 3</span>
+                    <span class="stat-label">Current Progress</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">7</span>
+                    <span class="stat-label">Learning Logs</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">Ubuntu</span>
+                    <span class="stat-label">Main OS</span>
+                </div>
+            </div>
 
-    <div class="tech-stack">
-        <h3>My Toolbox</h3>
-        <div class="tech-icons">
-            <div class="tech-item"><i class="fab fa-linux"></i> <span>Linux</span></div>
-            <div class="tech-item"><i class="fab fa-google"></i> <span>Google Cloud</span></div>
-            <div class="tech-item"><i class="fas fa-code"></i> <span>Terraform</span></div>
-            <div class="tech-item"><i class="fas fa-network-wired"></i> <span>Networking</span></div>
-            <div class="tech-item"><i class="fab fa-bash"></i> <span>Bash</span></div>
-        </div>
-    </div>
-</section>
+            <div class="tech-stack">
+                <h3>My Toolbox</h3>
+                <div class="tech-icons">
+                    <div class="tech-item"><i class="fab fa-linux"></i> <span>Linux</span></div>
+                    <div class="tech-item"><i class="fab fa-google"></i> <span>Google Cloud</span></div>
+                    <div class="tech-item"><i class="fas fa-code"></i> <span>Terraform</span></div>
+                    <div class="tech-item"><i class="fas fa-network-wired"></i> <span>Networking</span></div>
+                    <div class="tech-item"><i class="fab fa-bash"></i> <span>Bash</span></div>
+                </div>
+            </div>
+        </section>
 
         <section id="roadmap" class="page-section hidden">
-    <div class="roadmap-header">
-        <h1 class="roadmap-title">My Cloud Engineering Roadmap</h1>
-        <p class="roadmap-subtitle">From Beginner to Cloud Engineer</p>
-        
-        <div class="progress-container">
-            <div class="progress-info">
-                <span>Overall Progress</span>
-                <span class="status-in-progress">Level 3 in sight! 🔄</span>
+            <div class="roadmap-header">
+                <h1 class="roadmap-title">My Cloud Engineering Roadmap</h1>
+                <p class="roadmap-subtitle">From Beginner to Cloud Engineer</p>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>Overall Progress</span>
+                        <span class="status-in-progress">Level 3 in sight! 🔄</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
             </div>
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill" style="width: 75%;"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="roadmap-timeline" class="timeline"></div>
-</section>
+            <div id="roadmap-timeline" class="timeline"></div>
+        </section>
 
         <section id="logs" class="page-section hidden">
-    <div class="section-header">
-        <h2>Learning Logs</h2>
-        <p>Documenting my daily progress and troubleshooting.</p>
-    </div>
-
-    <div id="logs-container" class="logs-grid"></div>
-</section>
+            <div class="section-header">
+                <h2>Learning Logs</h2>
+                <p>Documenting my daily progress and troubleshooting.</p>
+            </div>
+            <div id="logs-container" class="logs-grid"></div>
+        </section>
 
         <section id="projects" class="page-section hidden">
-            <h2>Projects</h2>
+            <div class="section-header">
+                <h2>Projects</h2>
+                <p>Cloud infrastructure built with code.</p>
+            </div>
             <div id="projects-container" class="grid-layout"></div>
         </section>
 
@@ -115,37 +126,19 @@
             </div>
         </section>
 
-        <section id="home" class="page-section active">
-    <div class="linux-interactive-bg">
-        <svg class="tux-logo" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M220.8 123.3c1 .5 1.8 1.7 1.3 2.8l-11 20.1c-.4 1-1.8 1.5-2.8 1.1-1-.5-1.8-1.7-1.3-2.8l11-20.1c.4-1.1 1.8-1.6 2.8-1.1zm70.9 28.5c-11.4-14.4-32-15.6-45.6-2.6-13.6 13-14.8 34.6-2.6 47.2 12.1 12.6 33.7 13.3 46.8.6 13.2-12.7 12.8-30.8 1.4-45.2zM153.3 123.3c-1 .5-1.8 1.7-1.3 2.8l11 20.1c.4 1 1.8 1.5 2.8 1.1 1-.5 1.8-1.7 1.3-2.8l-11-20.1c-.4-1.1-1.8-1.6-2.8-1.1zm-70.9 28.5c11.4-14.4 32-15.6 45.6-2.6 13.6 13 14.8 34.6 2.6 47.2-12.1 12.6-33.7 13.3-46.8.6-13.2-12.7-12.8-30.8-1.4-45.2zM223.9 416c-100.6 0-182.1-70.8-182.1-158.2 0-25.2 6.6-49 18.5-70.5 5.9-10.7 14-20.5 23.9-29.2 14.2-12.5 32.1-22.1 52.1-28.1 20.1-6 42.1-9.1 65.5-9.1s45.4 3.1 65.5 9.1c20 6 37.9 15.6 52.1 28.1 9.9 8.7 18 18.5 23.9 29.2 11.9 21.5 18.5 45.3 18.5 70.5 0 87.4-81.5 158.2-182.1 158.2z" fill="currentColor"/>
-        </svg>
-        
-        <div class="packet p1"></div>
-        <div class="packet p2"></div>
-        <div class="packet p3"></div>
-        <div class="packet p4"></div>
-    </div>
-
-    <div class="hero">
-        <h1>Hello, I'm <span class="highlight">Reza</span>.</h1>
-        <p>Documenting my journey into Cloud Engineering.</p>
-    </div>
-</section>
-
         <section id="contact" class="page-section hidden">
             <h2>Contact</h2>
             <div class="card">
                 <p>Feel free to reach out for collaboration or just to talk tech!</p>
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Message" rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+                <form class="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                    <button type="submit" class="btn primary-btn">Send Message</button>
                 </form>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/reza-jafariteranloo-a52235216/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/reza-jafariteranloo-a52235216/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </section>
