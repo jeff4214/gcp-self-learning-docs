@@ -95,7 +95,7 @@ const roadmapLevels = [
     status: "In Progress 🔄",
     class: "status-in-progress",
     isCurrent: true
-}
+},
     {
         id: 4,
         title: "LEVEL 4 — Advanced Cloud (Future)",
