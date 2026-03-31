@@ -154,9 +154,35 @@ const logsData = [
 ];
 
 const projectsData = [
-    { 
-        title: "Bastion Host Architecture (GCP)", 
-        desc: `<p>I built a secure cloud environment using a public and private VM.</p>`
+    {
+        title: "🛡️ Secure Bastion Host Architecture",
+        tech: "Google Cloud (GCP), Linux, Networking",
+        desc: `
+            <p>Designed and deployed a multi-tier network architecture to isolate private resources from the public internet.</p>
+            <ul class="project-features">
+                <li><strong>Network Isolation:</strong> Private VM has 0% external exposure (no Public IP).</li>
+                <li><strong>Gateway Access:</strong> All management traffic routed through a hardened Bastion Host.</li>
+                <li><strong>Security Rules:</strong> Custom firewall rules allowing SSH only from specific internal tags.</li>
+            </ul>
+            <div class="arch-flow">
+                <code>Laptop ➔ Public VM (Bastion) ➔ Private VM (Secure)</code>
+            </div>
+        `,
+        link: "#" // Link to a GitHub repo or a specific Log post
+    },
+    {
+        title: "⚙️ Infrastructure as Code: Cloud Automation",
+        tech: "Terraform, HCL, GCP API",
+        desc: `
+            <p>Automating the manual Bastion setup using declarative code. This ensures 100% repeatable and version-controlled infrastructure.</p>
+            <ul class="project-features">
+                <li><strong>Provider Config:</strong> Secure authentication with Google Cloud Service Accounts.</li>
+                <li><strong>Resource Management:</strong> Defining VPCs, Subnets, and Instances in <code>.tf</code> files.</li>
+                <li><strong>State Management:</strong> Tracking cloud changes via Terraform State.</li>
+            </ul>
+            <p><em>Status: Currently migrating manual rules to automated HCL scripts.</em></p>
+        `,
+        link: "#"
     }
 ];
 
