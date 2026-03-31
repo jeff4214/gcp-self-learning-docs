@@ -40,7 +40,23 @@ const roadmapLevels = [
             "Firewall rules and traffic control"
         ],
         skills: ["Designing bastion architecture", "Managing SSH configs", "Securing private VMs"],
-        project: "Laptop → reza-linux-vm (Public) → jeff-linux-vm (Private)",
+        
+        // --- UPDATE THIS SECTION BELOW ---
+        project: `
+            <strong>🏗️ Project: Secure Bastion Architecture</strong><br><br>
+            <strong>Architecture:</strong><br>
+            Laptop → Public VM (reza) → Private VM (jeff)<br><br>
+            <strong>Security Features:</strong><br>
+            ✔ Private VM has no external IP<br>
+            ✔ SSH restricted via firewall rules<br>
+            ✔ Access only through bastion<br><br>
+            <strong>What I learned:</strong><br>
+            • Real-world cloud security design<br>
+            • SSH key management<br>
+            • Network isolation
+        `,
+        // ---------------------------------
+        
         status: "Completed ✅",
         class: "status-completed"
     },
