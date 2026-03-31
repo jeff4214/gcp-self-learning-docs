@@ -6,12 +6,18 @@ const roadmapLevels = [
         title: "LEVEL 0 — Foundations (Linux & Basics)",
         goal: "Build a strong understanding of how operating systems and basic networking work.",
         learned: [
-            "Linux file system structure (/home, /etc, /var)",
-            "User and permission management",
-            "Basic terminal commands",
-            "Networking basics (IP, ports, SSH)"
+            "Navigated the Linux file system using terminal (/home, /etc, /var)",
+            "Managed users and permissions on Ubuntu",
+            "Practiced essential terminal commands for daily use",
+            "Connected to remote systems using SSH"
         ],
-        skills: ["Navigating Linux using CLI", "Managing permissions (chmod, chown)", "Using SSH"],
+        skills: ["Linux CLI Navigation", "chmod / chown", "System Structure", "Basic SSH usage"],
+        proof: [
+            "Used Ubuntu as main working environment",
+            "Managed files and directories from CLI",
+            "Practiced user and permission control",
+            "Connected to remote systems via SSH"
+        ],
         status: "Completed ✅",
         class: "status-completed"
     },
@@ -20,12 +26,18 @@ const roadmapLevels = [
         title: "LEVEL 1 — Cloud Basics (Google Cloud)",
         goal: "Learn how to use cloud platforms and deploy basic infrastructure.",
         learned: [
-            "Basics of Google Cloud",
-            "Creating and managing virtual machines",
-            "Using gcloud CLI",
-            "SSH into cloud VMs"
+            "Created virtual machines using Google Cloud",
+            "Managed cloud resources using gcloud CLI",
+            "Connected to cloud VMs using SSH",
+            "Configured basic VM settings (machine type, OS, zone)"
         ],
-        skills: ["gcloud compute instances create", "gcloud compute ssh", "Terminal resource management"],
+        skills: ["gcloud compute instances", "gcloud compute ssh", "VM Lifecycle Management", "CLI-based operations"],
+        proof: [
+            "Created and configured VMs on Google Cloud",
+            "Connected to instances using SSH",
+            "Managed infrastructure using CLI instead of GUI",
+            "Understood basic cloud architecture concepts"
+        ],
         status: "Completed ✅",
         class: "status-completed"
     },
