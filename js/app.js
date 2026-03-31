@@ -113,43 +113,74 @@ const roadmapLevels = [
 ];
 
 const logsData = [
-    { 
-        title: "🟢 Post 1: Getting Started with Google Cloud", 
-        tags: ["GCP", "CLI"], 
-        content: `<p>I started by learning how to use the gcloud CLI and basic cloud setup...</p>`
+    {
+        title: "🚀 Post 1: Initializing the Cloud Environment",
+        tags: ["GCP", "CLI", "Foundations"],
+        content: `
+            <p><strong>Objective:</strong> Move away from the Web Console and manage Google Cloud entirely through the terminal.</p>
+            <p>I installed the Google Cloud SDK on my Ubuntu machine and performed the initial authentication handshake. This is the foundation for all future automation.</p>
+            <p><strong>Key Commands:</strong></p>
+            <ul>
+                <li><code>gcloud init</code> - To link my local terminal to my GCP project.</li>
+                <li><code>gcloud auth login</code> - To obtain access credentials via OAuth.</li>
+                <li><code>gcloud config set compute/region europe-west1</code> - Setting my default "home" for resources.</li>
+            </ul>
+        `
     },
-    { 
-        title: "🟡 Post 2: Creating Virtual Machines in GCP", 
-        tags: ["GCP", "Compute Engine"], 
-        content: `<p>I created my first VM using a Machine type: e2-micro...</p>`,
-        snippet: `gcloud compute instances create [INSTANCE_NAME] --zone=[ZONE] --image-family=ubuntu-2204-lts --image-project=ubuntu-os-cloud`
+    {
+        title: "🛡️ Post 2: Building the 'Reza-Jeff' Bastion Architecture",
+        tags: ["Networking", "Security", "SSH"],
+        content: `
+            <p><strong>The Experiment:</strong> Can I access a VM that has no public internet access?</p>
+            <p>I created two VMs. <strong>'Reza-vm'</strong> has a Public IP (the gateway), while <strong>'Jeff-vm'</strong> only has a Private IP. I configured firewall rules to block all traffic to Jeff-vm except from Reza-vm.</p>
+            <p><strong>The Breakthrough:</strong> I learned that SSH isn't just for logging in; it's a secure tunnel. By using <code>ssh-agent</code>, I can hop through the bastion without storing my private keys on the public server.</p>
+            <p><strong>Execution:</strong></p>
+        `,
+        snippet: `# Creating the private instance without an external IP
+gcloud compute instances create jeff-linux-vm \\
+    --network-interface=subnet=default,no-address \\
+    --zone=europe-west1-b`
     },
-    { 
-        title: "🛡️ Post 3: Building a Secure Bastion Architecture", 
-        tags: ["Architecture", "Security"], 
-        content: `<p>I created two virtual machines: reza-linux-vm and jeff-linux-vm...</p>`
+    {
+        title: "🐛 Post 3: Solving the 'Permission Denied' SSH Puzzle",
+        tags: ["Troubleshooting", "Linux"],
+        content: `
+            <p><strong>The Problem:</strong> When trying to jump from Reza to Jeff, I kept getting <code>Permission denied (publickey)</code>. </p>
+            <p><strong>Investigation:</strong> I used <code>ssh -vvv</code> to see the debug logs. I realized the public VM didn't know which private key to present to the internal VM.</p>
+            <p><strong>The Fix:</strong> I implemented a local <code>~/.ssh/config</code> file on my laptop to automate the "ProxyJump" command. This made the security invisible to my daily workflow.</p>
+        `,
+        snippet: `# My final SSH Config solution
+Host jeff-private
+    HostName 10.128.0.3
+    User reza
+    ProxyJump reza-public
+    IdentityFile ~/.ssh/google_compute_engine`
     },
-    { 
-        title: "🐛 Post 4: Debugging SSH 'Permission Denied'", 
-        tags: ["SSH", "Troubleshooting"], 
-        content: `<p>I faced an error when trying to connect... matching keys required.</p>`,
-        snippet: `ssh -i ~/.ssh/google_compute_engine jeff@10.128.0.3`
-    },
-    { 
-        title: "⚙️ Post 5: Using SSH Config", 
-        tags: ["SSH", "Linux"], 
-        content: `<p>Created ~/.ssh/config for cleaner access.</p>`,
-        snippet: `Host jeff-private\n  HostName 10.128.0.3\n  User jeff`
-    },
-    { 
-        title: "🔒 Post 6: Making My Private VM Truly Private", 
-        tags: ["Security", "GCP"], 
-        content: `<p>Removed external IP and added firewall rules.</p>`
-    },
-    { 
-        title: "🏗️ Post 7: Starting Terraform", 
-        tags: ["Terraform", "IaC"], 
-        content: `<p>Installed Terraform and created main.tf.</p>`
+    {
+        title: "⚙️ Post 4: The Terraform Transition (Level 3)",
+        tags: ["Terraform", "IaC", "Automation"],
+        content: `
+            <p><strong>The Experiment:</strong> Replicate my entire manual networking setup using a single file.</p>
+            <p>I am currently translating my firewall rules and VM definitions into HashiCorp Configuration Language (HCL). This is a game changer because I can now 'destroy' and 'recreate' my entire lab in seconds.</p>
+            <p><strong>Key Workflow:</strong></p>
+            <ul>
+                <li><code>terraform init</code> - Downloads the Google Cloud provider.</li>
+                <li><code>terraform plan</code> - Shows me exactly what GCP will build before I pay for it.</li>
+                <li><code>terraform apply</code> - The magic moment where the code becomes real infrastructure.</li>
+            </ul>
+        `,
+        snippet: `// Part of my main.tf for the Bastion Host
+resource "google_compute_instance" "bastion" {
+  name         = "reza-bastion"
+  machine_type = "e2-micro"
+  zone         = "europe-west1-b"
+
+  boot_disk {
+    initialize_params { image = "ubuntu-os-cloud/ubuntu-2204-lts" }
+  }
+
+  network_interface { network = "default" }
+}`
     }
 ];
 
