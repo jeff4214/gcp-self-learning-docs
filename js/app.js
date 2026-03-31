@@ -1,11 +1,100 @@
 // --- 1. Data Mockup ---
 
-const roadmapData = [
-    { level: 0, title: "Linux Basics", status: "completed", desc: "Ubuntu environment, file system, and CLI." },
-    { level: 1, title: "GCP Basics", status: "completed", desc: "Compute Engine, gcloud CLI setup." },
-    { level: 2, title: "Networking & Security", status: "current", desc: "VPCs, Firewalls, SSH keys, Bastion hosts." },
-    { level: 3, title: "Terraform", status: "in-progress", desc: "Infrastructure as Code (IaC) automation." }
+const roadmapLevels = [
+    {
+        id: 0,
+        title: "LEVEL 0 — Foundations (Linux & Basics)",
+        goal: "Build a strong understanding of how operating systems and basic networking work.",
+        learned: [
+            "Linux file system structure (/home, /etc, /var)",
+            "User and permission management",
+            "Basic terminal commands",
+            "Networking basics (IP, ports, SSH)"
+        ],
+        skills: ["Navigating Linux using CLI", "Managing permissions (chmod, chown)", "Using SSH"],
+        status: "Completed ✅",
+        class: "status-completed"
+    },
+    {
+        id: 1,
+        title: "LEVEL 1 — Cloud Basics (Google Cloud)",
+        goal: "Learn how to use cloud platforms and deploy basic infrastructure.",
+        learned: [
+            "Basics of Google Cloud",
+            "Creating and managing virtual machines",
+            "Using gcloud CLI",
+            "SSH into cloud VMs"
+        ],
+        skills: ["gcloud compute instances create", "gcloud compute ssh", "Terminal resource management"],
+        status: "Completed ✅",
+        class: "status-completed"
+    },
+    {
+        id: 2,
+        title: "LEVEL 2 — Networking & Security",
+        goal: "Understand how real cloud infrastructure is designed and secured.",
+        learned: [
+            "Public vs Private IP",
+            "Internal networking (VPC concepts)",
+            "SSH key authentication & Debugging",
+            "Firewall rules and traffic control"
+        ],
+        skills: ["Designing bastion architecture", "Managing SSH configs", "Securing private VMs"],
+        project: "Laptop → reza-linux-vm (Public) → jeff-linux-vm (Private)",
+        status: "Completed ✅",
+        class: "status-completed"
+    },
+    {
+        id: 3,
+        title: "LEVEL 3 — Terraform (Current)",
+        goal: "Automate infrastructure using code.",
+        learned: [
+            "Terraform basics",
+            "Writing .tf files",
+            "Authentication with Google Cloud",
+            "Infrastructure as Code (IaC)"
+        ],
+        skills: ["Writing Terraform configs", "Automating VM creation", "Managing infrastructure with code"],
+        status: "In Progress 🔄",
+        class: "status-in-progress",
+        isCurrent: true // This adds the highlight/glow effect
+    },
+    {
+        id: 4,
+        title: "LEVEL 4 — Advanced Cloud (Future)",
+        goal: "Build scalable, production-ready systems.",
+        learned: [
+            "Load balancing",
+            "Kubernetes (GKE)",
+            "IAM and security",
+            "Monitoring and logging"
+        ],
+        skills: ["System design", "Container orchestration", "Observability"],
+        status: "Planned ⏳",
+        class: "status-planned"
+    }
 ];
+
+// Update your render function to use these new fields
+function renderRoadmap() {
+    const container = document.getElementById('roadmap-timeline');
+    container.innerHTML = roadmapLevels.map(lvl => `
+        <div class="level-card ${lvl.isCurrent ? 'current-glow' : ''}">
+            <div class="card-content">
+                <h3>${lvl.title}</h3>
+                <p><strong>🎯 Goal:</strong> ${lvl.goal}</p>
+                <p><strong>📚 What I Learned:</strong></p>
+                <ul>${lvl.learned.map(item => `<li>${item}</li>`).join('')}</ul>
+                <p><strong>🛠️ Key Skills:</strong></p>
+                <div class="skills-list">${lvl.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
+                ${lvl.project ? `<p><strong>🏗️ Project:</strong> ${lvl.project}</p>` : ''}
+                <p class="status-text"><strong>📍 Status:</strong> <span class="${lvl.class}">${lvl.status}</span></p>
+            </div>
+        </div>
+    `).join('');
+}
+
+renderRoadmap();
 
 const logsData = [
     { 
