@@ -284,11 +284,18 @@ function renderLogs(filter = 'all', searchQuery = '') {
 
 function renderSimpleCards(dataArray, containerId) {
     const container = document.getElementById(containerId);
-    if(!container) return;
+    if (!container) return;
+
     container.innerHTML = dataArray.map(item => `
-        <div class="card">
-            <h3>${item.title}</h3>
-            <div>${item.desc}</div>
+        <div class="card project-card">
+            <div class="project-header">
+                <h3>${item.title}</h3>
+                <span class="tech-badge">${item.tech}</span>
+            </div>
+            <div class="project-body">${item.desc}</div>
+            <div class="project-footer">
+                <a href="${item.link}" class="btn-small">View Documentation</a>
+            </div>
         </div>
     `).join('');
 }
