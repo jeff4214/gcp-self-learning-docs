@@ -196,8 +196,8 @@ function renderRoadmap() {
                 <h3>${lvl.title}</h3>
                 <p><strong>🎯 Goal:</strong> ${lvl.goal}</p>
                 
-                <p><strong>📚 What I Learned:</strong></p>
-                <ul style="padding-left: 20px;">
+                <p><strong>📚 What I Built / Practiced:</strong></p>
+                <ul class="roadmap-list">
                     ${lvl.learned.map(item => `<li>${item}</li>`).join('')}
                 </ul>
 
@@ -206,7 +206,14 @@ function renderRoadmap() {
                     ${lvl.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
                 </div>
 
-                ${lvl.project ? `<p style="margin-top:15px;"><strong>🏗️ Project:</strong> ${lvl.project}</p>` : ''}
+                ${lvl.proof ? `
+                    <p style="margin-top:15px;"><strong>💡 Proof of Work:</strong></p>
+                    <ul class="proof-list" style="list-style: none; padding-left: 5px;">
+                        ${lvl.proof.map(p => `<li style="color: var(--text); opacity: 0.9;">✔ ${p}</li>`).join('')}
+                    </ul>
+                ` : ''}
+
+                ${lvl.project ? `<div class="project-box" style="margin-top:15px; padding:10px; background: rgba(0,0,0,0.2); border-radius:8px;">${lvl.project}</div>` : ''}
                 
                 <p class="status-text" style="margin-top:20px; border-top: 1px solid var(--border); padding-top:10px;">
                     <strong>📍 Status:</strong> <span class="${lvl.class}">${lvl.status}</span>
