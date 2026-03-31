@@ -171,3 +171,103 @@ input, select, textarea {
     .navbar { flex-direction: column; gap: 1rem; }
     nav { display: flex; flex-wrap: wrap; justify-content: center; }
 }
+
+/* Roadmap Container */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 20px;
+}
+
+/* Individual Level Cards */
+.level-card {
+    margin-bottom: 40px;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.level-card:hover {
+    transform: scale(1.02);
+}
+
+.card-content {
+    background: var(--card-bg); /* Uses your theme variable */
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern Header for each Level */
+.card-content h3 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+/* Skills Tags styling */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    background: rgba(88, 166, 255, 0.1);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(88, 166, 255, 0.3);
+}
+
+/* Progress Bar Styling */
+.progress-container {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    text-align: left;
+}
+
+.progress-bar-bg {
+    background: #21262d;
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar-fill {
+    background: linear-gradient(90deg, #58a6ff, #1f6feb);
+    height: 100%;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+}
+
+/* THE SPECIAL GLOW FOR LEVEL 3 */
+.current-glow .card-content {
+    border: 2px solid #58a6ff;
+    box-shadow: 0 0 25px rgba(88, 166, 255, 0.2);
+    position: relative;
+}
+
+.current-glow::before {
+    content: "CURRENT FOCUS";
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #58a6ff;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Status Text Colors */
+.status-completed { color: #3fb950; font-weight: bold; }
+.status-in-progress { color: #d29922; font-weight: bold; }
+.status-planned { color: #8b949e; }
