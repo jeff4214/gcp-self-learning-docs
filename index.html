@@ -33,24 +33,24 @@
             </div>
         </section>
 
-        <section id="roadmap" class="page-section hidden">
-            <h2>Learning Roadmap</h2>
-            <div id="roadmap-container" class="timeline"></div>
-        </section>
-
-        <section id="logs" class="page-section hidden">
-            <h2>Learning Logs</h2>
-            <div class="controls">
-                <input type="text" id="search-logs" placeholder="Search logs...">
-                <select id="tag-filter">
-                    <option value="all">All Tags</option>
-                    <option value="Linux">Linux</option>
-                    <option value="Cloud">Cloud</option>
-                    <option value="Terraform">Terraform</option>
-                </select>
+        <section id="roadmap" class="page-section active">
+    <div class="roadmap-header">
+        <h1 class="roadmap-title">My Cloud Engineering Roadmap</h1>
+        <p class="roadmap-subtitle">From Beginner to Cloud Engineer</p>
+        
+        <div class="progress-container">
+            <div class="progress-info">
+                <span>Current Focus: <strong>Level 3 — Terraform</strong></span>
+                <span class="status-in-progress">In Progress 🔄</span>
             </div>
-            <div id="logs-container" class="grid-layout"></div>
-        </section>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 75%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="roadmap-timeline" class="timeline"></div>
+</section>
 
         <section id="projects" class="page-section hidden">
             <h2>Projects</h2>
