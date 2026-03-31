@@ -271,3 +271,60 @@ input, select, textarea {
 .status-completed { color: #3fb950; font-weight: bold; }
 .status-in-progress { color: #d29922; font-weight: bold; }
 .status-planned { color: #8b949e; }
+/* Hero Section */
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero-subtitle { font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; font-weight: bold; }
+.hero-btns { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
+
+/* Buttons */
+.btn { padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; border: none; transition: 0.3s; }
+.primary-btn { background: var(--accent); color: white; }
+.secondary-btn { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+/* Stats Bar */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.stat-value { display: block; font-size: 1.8rem; font-weight: bold; color: var(--accent); }
+.stat-label { font-size: 0.9rem; opacity: 0.7; }
+
+/* Tech Stack Icons */
+.tech-stack { text-align: center; margin-top: 60px; }
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.tech-item i { font-size: 2rem; }
+.tech-item:hover { opacity: 1; color: var(--accent); }
