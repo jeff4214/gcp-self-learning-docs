@@ -253,18 +253,34 @@ input, select, textarea {
     position: relative;
 }
 
-.current-glow::before {
-    content: "CURRENT FOCUS";
+/* Ensure the card is the anchor for the badge */
+.level-card.current-glow {
+    position: relative; 
+    margin-top: 30px; /* Space for the badge above */
+}
+
+/* The "Current Focus" Badge - Fixed Position */
+.level-card.current-glow::before {
+    content: "🚀 CURRENT FOCUS";
     position: absolute;
-    top: -12px;
-    right: 20px;
-    background: #58a6ff;
+    top: -15px; /* Sits on the top border */
+    left: 25px;
+    background: #58a6ff; /* Your accent blue */
     color: white;
-    padding: 2px 10px;
-    border-radius: 5px;
-    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
     font-weight: bold;
-    z-index: 2;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(88, 166, 255, 0.4);
+    pointer-events: none; /* Prevents the 'blinking' on hover */
+}
+
+/* The Glow Effect - Always visible, not just on hover */
+.current-glow .card-content {
+    border: 2px solid #58a6ff !important;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
+    background: rgba(88, 166, 255, 0.03); /* Subtle tint */
 }
 
 /* Status Text Colors */
