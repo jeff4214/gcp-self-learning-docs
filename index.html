@@ -26,12 +26,45 @@
 
     <main id="app-content">
         <section id="home" class="page-section active">
-            <div class="hero">
-                <h1>Hello, I'm an aspiring <span class="highlight">Cloud Engineer</span>.</h1>
-                <p>Documenting my journey from Level 0 to 100 in Linux, Networking, and Cloud Architecture.</p>
-                <div class="status-badge">Current Status: Level 3 (Terraform)</div>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm <span class="highlight">Reza</span>.</h1>
+            <p class="hero-subtitle">First-year IT Student & Aspiring Cloud Engineer</p>
+            <p>I build secure, automated infrastructure on Google Cloud and document every step of the journey.</p>
+            
+            <div class="hero-btns">
+                <button class="btn primary-btn" onclick="document.querySelector('[data-target=roadmap]').click()">View Roadmap</button>
+                <button class="btn secondary-btn" onclick="document.querySelector('[data-target=contact]').click()">Get In Touch</button>
             </div>
-        </section>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-value">Level 3</span>
+            <span class="stat-label">Current Progress</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">7</span>
+            <span class="stat-label">Learning Logs</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">Ubuntu</span>
+            <span class="stat-label">Main OS</span>
+        </div>
+    </div>
+
+    <div class="tech-stack">
+        <h3>My Toolbox</h3>
+        <div class="tech-icons">
+            <div class="tech-item"><i class="fab fa-linux"></i> <span>Linux</span></div>
+            <div class="tech-item"><i class="fab fa-google"></i> <span>Google Cloud</span></div>
+            <div class="tech-item"><i class="fas fa-code"></i> <span>Terraform</span></div>
+            <div class="tech-item"><i class="fas fa-network-wired"></i> <span>Networking</span></div>
+            <div class="tech-item"><i class="fab fa-bash"></i> <span>Bash</span></div>
+        </div>
+    </div>
+</section>
 
         <section id="roadmap" class="page-section hidden">
     <div class="roadmap-header">
