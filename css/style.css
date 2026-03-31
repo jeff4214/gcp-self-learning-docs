@@ -404,3 +404,48 @@ input, select, textarea {
 .btn-small:hover {
     border-bottom: 1px solid var(--accent);
 }
+
+/* Log Post Styling */
+.log-card {
+    border-left: 5px solid var(--border);
+    padding-left: 30px !important;
+    position: relative;
+}
+
+.log-card::before {
+    content: "LOG";
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    background: var(--border);
+    font-size: 0.6rem;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: var(--accent);
+}
+
+.log-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.log-content ul {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px 15px 15px 35px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Terminal Snippet Styling */
+pre[class*="language-"] {
+    background: #011627 !important; /* Deep night blue */
+    border: 1px solid #1e2e3e;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+}
