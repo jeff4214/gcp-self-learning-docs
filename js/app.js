@@ -1,33 +1,146 @@
-// --- 1. Data Mockup (Edit these to update your site!) ---
+// --- 1. Data Mockup ---
+
 const roadmapData = [
-    { level: 0, title: "Linux Basics", status: "completed", desc: "File permissions, bash scripting, SSH." },
-    { level: 1, title: "Cloud Basics", status: "current", desc: "Understanding VMs, storage, and IAM." },
-    { level: 2, title: "Networking & Security", status: "planned", desc: "VPCs, Subnets, Firewalls, Load Balancers." },
-    { level: 3, title: "Terraform & Automation", status: "planned", desc: "Infrastructure as Code (IaC)." }
+    { level: 0, title: "Linux Basics", status: "completed", desc: "Ubuntu environment, file system, and CLI." },
+    { level: 1, title: "GCP Basics", status: "completed", desc: "Compute Engine, gcloud CLI setup." },
+    { level: 2, title: "Networking & Security", status: "current", desc: "VPCs, Firewalls, SSH keys, Bastion hosts." },
+    { level: 3, title: "Terraform", status: "in-progress", desc: "Infrastructure as Code (IaC) automation." }
 ];
 
 const logsData = [
-    { title: "Setting up my first SSH Key", date: "2026-03-30", tags: ["Linux", "Security"], snippet: "ssh-keygen -t ed25519 -C 'email@example.com'" },
-    { title: "Understanding GCP Compute Engine", date: "2026-03-25", tags: ["Cloud", "GCP"], snippet: "gcloud compute instances create my-vm --zone=us-central1-a" }
+    { 
+        title: "🟢 Post 1: Getting Started with Google Cloud", 
+        tags: ["GCP", "CLI"], 
+        content: `
+            <p>I started by learning how to use the gcloud CLI and basic cloud setup. This helped me understand how to manage cloud resources from the terminal instead of using the web interface.</p>
+            <p><strong>Key commands I learned:</strong></p>
+            <ul>
+                <li><code>gcloud init</code></li>
+                <li><code>gcloud auth login</code></li>
+                <li><code>gcloud compute instances list</code></li>
+            </ul>
+        `
+    },
+    { 
+        title: "🟡 Post 2: Creating Virtual Machines in GCP", 
+        tags: ["GCP", "Compute Engine", "Ubuntu"], 
+        content: `
+            <p>I created my first VM using a <strong>Machine type: e2-micro</strong> (free tier) and an <strong>Ubuntu OS</strong>. This gave me a Linux server running in the cloud.</p>
+        `,
+        snippet: `gcloud compute instances create [INSTANCE_NAME] \\
+--zone=[ZONE] \\
+--image-family=ubuntu-2204-lts \\
+--image-project=ubuntu-os-cloud`
+    },
+    { 
+        title: "🛡️ Post 3: Building a Secure Bastion Architecture", 
+        tags: ["Architecture", "Security", "Networking"], 
+        content: `
+            <p>I created two virtual machines:</p>
+            <ul>
+                <li><strong>reza-linux-vm</strong> &rarr; Public VM (bastion)</li>
+                <li><strong>jeff-linux-vm</strong> &rarr; Private VM</li>
+            </ul>
+            <p><strong>Goal:</strong> Only allow access to the private VM through the public VM.</p>
+            <p><strong>Architecture Flow:</strong><br> Laptop &rarr; reza-linux-vm &rarr; jeff-linux-vm</p>
+        `
+    },
+    { 
+        title: "🐛 Post 4: Debugging SSH 'Permission Denied (publickey)'", 
+        tags: ["SSH", "Troubleshooting"], 
+        content: `
+            <p>I faced an error when trying to connect from the public VM to the private VM: <code>Permission denied (publickey)</code>.</p>
+            <p><strong>What I learned:</strong></p>
+            <ul>
+                <li>SSH requires matching public + private keys.</li>
+                <li>Default keys are not always used automatically.</li>
+            </ul>
+            <p><strong>Solution:</strong> I explicitly pointed to the key using the command below. Later, I improved it using SSH config.</p>
+        `,
+        snippet: `ssh -i ~/.ssh/google_compute_engine jeff@10.128.0.3`
+    },
+    { 
+        title: "⚙️ Post 5: Using SSH Config for Cleaner Access", 
+        tags: ["SSH", "Linux"], 
+        content: `
+            <p>Instead of typing long commands, I created an SSH config file at <code>~/.ssh/config</code>. Now I can simply run: <code>ssh jeff-private</code>.</p>
+        `,
+        snippet: `Host jeff-private
+    HostName 10.128.0.3
+    User jeff
+    IdentityFile ~/.ssh/mykey`
+    },
+    { 
+        title: "🔒 Post 6: Making My Private VM Truly Private", 
+        tags: ["Security", "GCP", "Firewall"], 
+        content: `
+            <p><strong>Steps taken:</strong></p>
+            <ol>
+                <li>Removed external IP from <code>jeff-linux-vm</code></li>
+                <li>Created a firewall rule to allow SSH <em>only</em> from <code>reza-linux-vm</code></li>
+                <li>Added network tag: <code>private-vm</code></li>
+            </ol>
+            <p><strong>Result:</strong></p>
+            <ul>
+                <li>Internet ❌ &rarr; jeff-linux-vm</li>
+                <li>reza-linux-vm ✅ &rarr; jeff-linux-vm</li>
+            </ul>
+            <p>This is a real-world secure setup!</p>
+        `
+    },
+    { 
+        title: "🏗️ Post 7: Starting Terraform", 
+        tags: ["Terraform", "IaC", "Automation"], 
+        content: `
+            <p>I began learning Terraform to automate my infrastructure. My goal is to rebuild my entire Bastion architecture using code.</p>
+            <p><strong>Steps:</strong></p>
+            <ul>
+                <li>Installed Terraform</li>
+                <li>Authenticated with Google Cloud</li>
+                <li>Created first configuration file (<code>main.tf</code>)</li>
+            </ul>
+        `
+    }
 ];
 
 const projectsData = [
-    { title: "Bastion Host Architecture", desc: "Securely connecting to a private VM via a public Bastion host.", tech: "Linux, GCP, Networking", link: "#" }
+    { 
+        title: "Bastion Host Architecture (GCP)", 
+        desc: `
+            <p><strong>Description:</strong> I built a secure cloud environment using a public and private VM.</p>
+            <br>
+            <p><strong>Components:</strong></p>
+            <ul>
+                <li>Public VM (reza-linux-vm)</li>
+                <li>Private VM (jeff-linux-vm)</li>
+                <li>Firewall rules & SSH key authentication</li>
+            </ul>
+            <br>
+            <p><strong>Security Features:</strong></p>
+            <ul>
+                <li>Private VM has no external IP</li>
+                <li>SSH access restricted to bastion only</li>
+            </ul>
+            <br>
+            <p><strong>Architecture:</strong> Laptop &rarr; Public VM &rarr; Private VM</p>
+            <br>
+            <p><strong>Skills Learned:</strong> SSH key management, Firewall rules, Cloud networking.</p>
+        `
+    }
 ];
 
 const conceptsData = [
     { title: "VPC (Virtual Private Cloud)", desc: "A private network space in the cloud where you can launch resources securely." },
-    { title: "IAM", desc: "Identity and Access Management - Controls WHO can do WHAT in your cloud." }
+    { title: "IAM", desc: "Identity and Access Management - Controls WHO can do WHAT in your cloud." },
+    { title: "Bastion Host", desc: "A special purpose computer on a network specifically designed and configured to withstand attacks, used as a gateway to private networks." }
 ];
 
 // --- 2. Navigation Logic ---
 document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-        // Update active button
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
 
-        // Toggle Sections
         const targetId = e.target.getAttribute('data-target');
         document.querySelectorAll('.page-section').forEach(section => {
             section.classList.remove('active');
@@ -51,14 +164,21 @@ themeBtn.addEventListener('click', () => {
 // --- 4. Render Functions ---
 function renderRoadmap() {
     const container = document.getElementById('roadmap-container');
-    container.innerHTML = roadmapData.map(item => `
-        <div class="card" style="border-left: 4px solid ${item.status === 'completed' ? '#28a745' : item.status === 'current' ? 'var(--accent)' : 'var(--border)'}">
+    container.innerHTML = roadmapData.map(item => {
+        let borderColor = 'var(--border)';
+        if (item.status === 'completed') borderColor = '#28a745'; // Green
+        if (item.status === 'current') borderColor = 'var(--accent)'; // Blue
+        if (item.status === 'in-progress') borderColor = '#ffc107'; // Yellow
+
+        return `
+        <div class="card" style="border-left: 4px solid ${borderColor}">
             <h3>Level ${item.level}: ${item.title} 
                 <span class="tag">${item.status.toUpperCase()}</span>
             </h3>
             <p>${item.desc}</p>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function renderLogs(filter = 'all', searchQuery = '') {
@@ -70,17 +190,20 @@ function renderLogs(filter = 'all', searchQuery = '') {
     });
 
     container.innerHTML = filteredLogs.map(log => `
-        <div class="card">
+        <div class="card log-card">
             <h3>${log.title}</h3>
-            <small>${log.date}</small>
-            <div style="margin: 0.5rem 0;">
+            <div style="margin: 0.8rem 0;">
                 ${log.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
-            <pre><code class="language-bash">${log.snippet}</code></pre>
+            <div class="log-content">${log.content}</div>
+            ${log.snippet ? `<pre><code class="language-bash">${log.snippet}</code></pre>` : ''}
         </div>
     `).join('');
-    // Trigger Prism to highlight newly injected code blocks
-    Prism.highlightAll(); 
+    
+    // Trigger Prism to highlight newly injected code blocks (if loaded)
+    if (window.Prism) {
+        Prism.highlightAll();
+    }
 }
 
 function renderSimpleCards(dataArray, containerId) {
@@ -88,8 +211,8 @@ function renderSimpleCards(dataArray, containerId) {
     container.innerHTML = dataArray.map(item => `
         <div class="card">
             <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            ${item.tech ? `<small><strong>Tech:</strong> ${item.tech}</small>` : ''}
+            <div>${item.desc}</div>
+            ${item.tech ? `<br><small><strong>Tech:</strong> ${item.tech}</small>` : ''}
         </div>
     `).join('');
 }
