@@ -159,22 +159,30 @@ themeBtn.addEventListener('click', () => {
 
 // FIXED: Uses roadmapLevels variable and the correct ID for the container
 function renderRoadmap() {
-    const container = document.getElementById('roadmap-timeline'); 
-    if(!container) return; // Guard clause
+    const container = document.getElementById('roadmap-timeline');
+    if (!container) return;
 
     container.innerHTML = roadmapLevels.map(lvl => `
         <div class="level-card ${lvl.isCurrent ? 'current-glow' : ''}">
             <div class="card-content">
                 <h3>${lvl.title}</h3>
                 <p><strong>🎯 Goal:</strong> ${lvl.goal}</p>
+                
                 <p><strong>📚 What I Learned:</strong></p>
-                <ul>${lvl.learned.map(item => `<li>${item}</li>`).join('')}</ul>
+                <ul style="padding-left: 20px;">
+                    ${lvl.learned.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+
                 <p><strong>🛠️ Key Skills:</strong></p>
                 <div class="skills-list">
-                    ${lvl.skills.map(s => `<span class="tag" style="background:var(--border); padding:2px 8px; border-radius:4px; font-size:0.8rem; margin-right:5px;">${s}</span>`).join('')}
+                    ${lvl.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
                 </div>
-                ${lvl.project ? `<p><strong>🏗️ Project:</strong> ${lvl.project}</p>` : ''}
-                <p class="status-text"><strong>📍 Status:</strong> <span class="${lvl.class}">${lvl.status}</span></p>
+
+                ${lvl.project ? `<p style="margin-top:15px;"><strong>🏗️ Project:</strong> ${lvl.project}</p>` : ''}
+                
+                <p class="status-text" style="margin-top:20px; border-top: 1px solid var(--border); padding-top:10px;">
+                    <strong>📍 Status:</strong> <span class="${lvl.class}">${lvl.status}</span>
+                </p>
             </div>
         </div>
     `).join('');
