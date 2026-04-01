@@ -181,7 +181,37 @@ resource "google_compute_instance" "bastion" {
 
   network_interface { network = "default" }
 }`
-    }
+    },
+    {
+    title: "🛠️ Log 5: Installing Terraform & Overcoming 'apt-key' Deprecation",
+    tags: ["Terraform", "Linux", "Troubleshooting"],
+    content: `
+        <p><strong>The Mission:</strong> Shift from manual <code>gcloud</code> commands to Infrastructure as Code (IaC) by installing Terraform on my local Ubuntu machine.</p>
+        
+        <p><strong>The Challenge:</strong> Standard tutorials often use <code>apt-key</code>, but on modern systems (like Ubuntu 22.04+), this command is deprecated and can fail with <code>command not found</code>.</p>
+        
+        <p><strong>The Modern Fix:</strong> Instead of the old method, I manually created a trusted keyring. This is a more secure way to manage third-party repository signatures.</p>
+        
+        <p><strong>Step-by-Step Execution:</strong></p>
+        <ol>
+            <li>Create the keyring directory: <code>sudo mkdir -p /usr/share/keyrings</code></li>
+            <li>Download and dearmor the GPG key: <code>curl -fsSL ... | sudo gpg --dearmor</code></li>
+            <li>Add the signed repository to the sources list.</li>
+            <li>Install the package via <code>apt</code>.</li>
+        </ol>
+    `,
+    snippet: `# How I successfully installed Terraform
+sudo apt update
+sudo apt install -y gnupg software-properties-common curl
+
+# The Modern Keyring Method
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+sudo apt update && sudo apt install terraform`
+}
+    
 ];
 
 const projectsData = [
