@@ -248,9 +248,71 @@ const projectsData = [
 ];
 
 const conceptsData = [
-    { title: "VPC", desc: "Private network space in the cloud." },
-    { title: "IAM", desc: "Identity and Access Management." },
-    { title: "Bastion Host", desc: "Gateway to private networks." }
+    {
+        title: "🌐 VPC (Virtual Private Cloud)",
+        tech: "Cloud Networking",
+        desc: `
+            <p><strong>The Concept:</strong> Your own isolated, private section of the Google Cloud network.</p>
+            <p>Within a VPC, you define your own IP address ranges, create subnets, and configure route tables and network gateways.</p>
+            <div class="arch-flow">
+                <code>Internet ➔ Cloud Router ➔ VPC ➔ Subnets</code>
+            </div>
+            <ul class="project-features">
+                <li><strong>Segmentation:</strong> Keeping Web servers separate from Database servers.</li>
+                <li><strong>Control:</strong> You decide exactly which traffic enters and leaves.</li>
+            </ul>
+        `
+    },
+    {
+        title: "🔑 IAM (Identity & Access Management)",
+        tech: "Cloud Security",
+        desc: `
+            <p><strong>The Concept:</strong> Who can do what, on which resource?</p>
+            <p>IAM allows you to grant granular access to specific Google Cloud resources and prevents adventurous "all-access" permissions that cause security leaks.</p>
+            <div class="arch-flow">
+                <code>Principal (User/SA) ➔ Role (Permissions) ➔ Resource (VM/Bucket)</code>
+            </div>
+            <ul class="project-features">
+                <li><strong>Least Privilege:</strong> Only give the minimum access needed for a job.</li>
+                <li><strong>Service Accounts:</strong> Allowing Terraform to talk to GCP securely.</li>
+            </ul>
+        `
+    },
+    {
+        title: "🛡️ Bastion Host (Jump Box)",
+        tech: "Network Security",
+        desc: `
+            <p><strong>The Concept:</strong> A hardened "gatekeeper" server used to access a private network.</p>
+            <p>Instead of exposing your database or private app to the whole internet, you log into the Bastion Host first, then "jump" to the internal resource.</p>
+            <div class="arch-flow">
+                <code>Admin ➔ SSH ➔ Bastion (Public) ➔ SSH ➔ Internal VM (Private)</code>
+            </div>
+            <ul class="project-features">
+                <li><strong>Reduced Attack Surface:</strong> Only one point of entry to defend.</li>
+                <li><strong>Audit Trails:</strong> Centralized logging of who accessed the network.</li>
+            </ul>
+        `
+    },
+    {
+    title: "🔐 GPG Keyrings & Chain of Trust",
+    tech: "Linux Security / Apt",
+    desc: `
+        <p><strong>The Concept:</strong> How do you know the 'Terraform' package you just downloaded actually came from HashiCorp and wasn't modified by a hacker?</p>
+        
+        <p><strong>The Mechanism:</strong> Linux uses GPG (GNU Privacy Guard) keys. Think of it as a digital wax seal on a letter. 
+        The <code>.gpg</code> file you downloaded is the public key that verifies the signature on the software packages.</p>
+        
+        <div class="arch-flow">
+            <code>Developer Sign ➔ GPG Keyring ➔ Package Manager Verify</code>
+        </div>
+
+        <ul class="project-features">
+            <li><strong>Security:</strong> Prevents "Man-in-the-Middle" attacks during installation.</li>
+            <li><strong>Modern Standards:</strong> Moving from <code>apt-key</code> (global trust) to <code>signed-by</code> (specific trust) makes the system more secure.</li>
+        </ul>
+    `,
+    link: "https://ubuntu.com/server/docs/security-software-repositories" // Link to official Ubuntu security docs
+}
 ];
 
 // --- 2. Navigation Logic ---
