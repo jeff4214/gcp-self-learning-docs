@@ -210,6 +210,32 @@ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/s
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 
 sudo apt update && sudo apt install terraform`
+},
+    {
+    title: "🚀 Log 6: My First Terraform Deployment & The ADC Trap",
+    tags: ["Terraform", "GCP", "Authentication", "Troubleshooting"],
+    content: `
+        <p><strong>The Mission:</strong> Deploy a Google Compute Instance purely through code using Terraform.</p>
+        
+        <p><strong>The "Gotcha":</strong> Even with <code>gcloud auth login</code> active, Terraform failed with a 'No credentials loaded' error. </p>
+        
+        <p><strong>The Discovery:</strong> I learned that the gcloud CLI and Terraform use different authentication paths. Terraform requires <strong>Application Default Credentials (ADC)</strong> to communicate with the Google Cloud APIs.</p>
+        
+        <p><strong>The Fix:</strong> Running <code>gcloud auth application-default login</code> creates a local JSON file that Terraform can use to prove its identity to GCP.</p>
+        
+        <p><strong>Workflow Checklist:</strong></p>
+        <ul>
+            <li><code>terraform init</code>: Prepare the working directory.</li>
+            <li><code>terraform plan</code>: Review the execution strategy.</li>
+            <li><code>terraform apply</code>: Turn code into real cloud resources.</li>
+            <li><code>terraform destroy</code>: Safely decommission the infrastructure.</li>
+        </ul>
+    `,
+    snippet: `# The command that fixed my 'No Credentials' error
+gcloud auth application-default login
+
+# Verifying the deployment afterward
+gcloud compute instances list`
 }
     
 ];
@@ -244,7 +270,21 @@ const projectsData = [
             <p><em>Status: Currently migrating manual rules to automated HCL scripts.</em></p>
         `,
         link: "#"
-    }
+    },
+    {
+    title: "⚙️ Infrastructure as Code: Cloud Automation",
+    tech: "Terraform, HCL, GCP API",
+    desc: `
+        <p>Automated the deployment of a hardened Linux environment using HashiCorp Configuration Language (HCL).</p>
+        <ul class="project-features">
+            <li><strong>Provider Config:</strong> Securely linked Terraform to GCP via Application Default Credentials.</li>
+            <li><strong>Declarative VMs:</strong> Defined machine types and OS images via code variables.</li>
+            <li><strong>Resource Lifecycle:</strong> Mastered the Init ➔ Plan ➔ Apply ➔ Destroy cycle.</li>
+        </ul>
+        <p><em>Status: ✅ Basic automation successful. Moving to multi-VM networking.</em></p>
+    `,
+    link: "#" 
+}
 ];
 
 const conceptsData = [
