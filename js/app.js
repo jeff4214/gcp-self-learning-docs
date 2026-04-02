@@ -1,5 +1,3 @@
-// --- 1. Data Mockup ---
-
 const roadmapLevels = [
     {
         id: 0,
@@ -52,7 +50,7 @@ const roadmapLevels = [
             "Firewall rules and traffic control"
         ],
         skills: ["Designing bastion architecture", "Managing SSH configs", "Securing private VMs"],
-        
+
         // --- UPDATE THIS SECTION BELOW ---
         project: `
             <strong>🏗️ Project: Secure Bastion Architecture</strong><br><br>
@@ -68,56 +66,48 @@ const roadmapLevels = [
             • Network isolation
         `,
         // ---------------------------------
-        
+
         status: "Completed ✅",
         class: "status-completed"
     },
     {
     id: 3,
-    title: "LEVEL 3 — Automation with Terraform",
-    isCurrent: true,
-    goal: "Move from manual cloud setup to automated infrastructure using code.",
-    content: `
-        <p>At this stage, I transitioned to <strong>Infrastructure as Code (IaC)</strong>. Instead of clicking buttons in the GCP Console, I define my entire data center in <code>.tf</code> files.</p>
-        
-        <h4>⚙️ Core Workflow</h4>
-        <div class="arch-flow">
-            <code>Write Code ➔ terraform plan ➔ terraform apply</code>
-        </div>
-
-        <h4>🛠️ What I Built</h4>
-        <ul class="project-features">
-            <li><strong>Provider Logic:</strong> Securely connecting Terraform to Google Cloud APIs.</li>
-            <li><strong>Dual-VM Architecture:</strong> Automated a Public Bastion and a Private "Internal" VM.</li>
-            <li><strong>State Management:</strong> Learned how Terraform tracks real-world resources via state files.</li>
-        </ul>
-
-        <h4>🧨 Challenges & Debugging</h4>
-        <div class="debug-box">
-            <p><strong>The Bug:</strong> Auth errors with <code>Application Default Credentials</code>.</p>
-            <p><strong>The Fix:</strong> Resolved using <code>gcloud auth application-default login</code> to bridge my local CLI with GCP.</p>
-        </div>
-    `,
-    codeSnippet: `resource "google_compute_instance" "public_vm" {
-  name         = "public-vm"
-  machine_type = "e2-micro"
-  
-  boot_disk {
-    initialize_params { image = "ubuntu-os-cloud/ubuntu-2204-lts" }
-  }
-
-  network_interface {
-    network = "default"
-    access_config {} // Provides Public IP
-  }
-  tags = ["bastion"]
-}`,
-    takeaways: [
-        "Infrastructure must be reproducible.",
-        "Terraform enforces 'Desired State', it doesn't just run commands.",
-        "Automation is the baseline for professional Cloud Engineering."
-    ]
-}
+    title: "LEVEL 3 — Automation with Terraform (Current)",
+    goal: "Automate cloud infrastructure using code instead of manual configuration.",
+    learned: [
+        "Writing Terraform configuration files (.tf)",
+        "Connecting Terraform to Google Cloud",
+        "Defining virtual machines and network resources using code",
+        "Understanding Infrastructure as Code (IaC) concepts",
+        "Rebuilding manual infrastructure using Terraform"
+    ],
+    skills: ["Terraform Configs", "Providers & Resources", "init/plan/apply", "IaC Automation"],
+    proof: [
+        "Installed and configured Terraform locally",
+        "Authenticated Terraform with Google Cloud",
+        "Created first Terraform configuration (main.tf)",
+        "Planned and applied infrastructure changes using CLI",
+        "Started rebuilding manual setup using code"
+    ],
+    project: "🚀 Current Focus: Rebuilding my bastion architecture (public VM + private VM + firewall rules) using Terraform",
+    status: "In Progress 🔄",
+    class: "status-in-progress",
+    isCurrent: true
+},
+    {
+        id: 4,
+        title: "LEVEL 4 — Advanced Cloud (Future)",
+        goal: "Build scalable, production-ready systems.",
+        learned: [
+            "Load balancing",
+            "Kubernetes (GKE)",
+            "IAM and security",
+            "Monitoring and logging"
+        ],
+        skills: ["System design", "Container orchestration", "Observability"],
+        status: "Planned ⏳",
+        class: "status-planned"
+    }
 ];
 
 const logsData = [
@@ -245,39 +235,13 @@ gcloud auth application-default login
 # Verifying the deployment afterward
 gcloud compute instances list`
 }
-    
-];
 
-const projectsData = [
-    {
-        title: "🛡️ Secure Bastion Host Architecture",
-        tech: "Google Cloud (GCP), Linux, Networking",
-        desc: `
-            <p>Designed and deployed a multi-tier network architecture to isolate private resources from the public internet.</p>
-            <ul class="project-features">
-                <li><strong>Network Isolation:</strong> Private VM has 0% external exposure (no Public IP).</li>
-                <li><strong>Gateway Access:</strong> All management traffic routed through a hardened Bastion Host.</li>
-                <li><strong>Security Rules:</strong> Custom firewall rules allowing SSH only from specific internal tags.</li>
-            </ul>
-            <div class="arch-flow">
-                <code>Laptop ➔ Public VM (Bastion) ➔ Private VM (Secure)</code>
-            </div>
-        `,
-        link: "#" // Link to a GitHub repo or a specific Log post
-    },
-    {
-        title: "⚙️ Infrastructure as Code: Cloud Automation",
-        tech: "Terraform, HCL, GCP API",
-        desc: `
-            <p>Automating the manual Bastion setup using declarative code. This ensures 100% repeatable and version-controlled infrastructure.</p>
-            <ul class="project-features">
-                <li><strong>Provider Config:</strong> Secure authentication with Google Cloud Service Accounts.</li>
-                <li><strong>Resource Management:</strong> Defining VPCs, Subnets, and Instances in <code>.tf</code> files.</li>
-                <li><strong>State Management:</strong> Tracking cloud changes via Terraform State.</li>
-            </ul>
+];
+@@ -244,203 +270,217 @@
             <p><em>Status: Currently migrating manual rules to automated HCL scripts.</em></p>
         `,
         link: "#"
+    }
     },
     {
     title: "⚙️ Infrastructure as Code: Cloud Automation",
@@ -449,7 +413,7 @@ function renderLogs(filter = 'all', searchQuery = '') {
             ${log.snippet ? `<pre><code class="language-bash">${log.snippet}</code></pre>` : ''}
         </div>
     `).join('');
-    
+
     if (window.Prism) { Prism.highlightAll(); }
 }
 
