@@ -236,7 +236,44 @@ gcloud auth application-default login
 
 # Verifying the deployment afterward
 gcloud compute instances list`
-}
+},
+    {
+    title: "🧠 Log 7: Deep Dive into Terraform Concepts & Lifecycle",
+    tags: ["Terraform", "IaC", "Cloud-Architecture"],
+    content: `
+        <p><strong>The Mission:</strong> Move beyond basic installation and understand the core "DNA" of Terraform.</p>
+        
+        <p><strong>What I Learned:</strong> Infrastructure as Code (IaC) isn't just a script; it's a <em>declarative</em> blueprint. I don't tell GCP 'Create a VM'; I tell Terraform 'The desired state is a VM,' and Terraform makes it happen.</p>
+
+        <p><strong>⚙️ Core Architecture Concepts:</strong></p>
+        <ul>
+            <li><strong>Provider:</strong> The bridge. It tells Terraform how to talk to the Google Cloud API.</li>
+            <li><strong>Resource:</strong> The building blocks. This defines the specific VM, Network, or Firewall rule.</li>
+            <li><strong>State File:</strong> The "Memory." Terraform keeps a <code>.tfstate</code> file to remember exactly what it built so it doesn't create duplicates.</li>
+        </ul>
+
+        <p><strong>🔄 The Workflow Lifecycle:</strong></p>
+        <ol>
+            <li><code>terraform plan</code>: The "Dry Run." It shows a preview of changes without actually touching the cloud.</li>
+            <li><code>terraform apply</code>: The "Execution." Code becomes real infrastructure.</li>
+            <li><code>terraform destroy</code>: The "Cleanup." Safely removes everything to avoid unexpected costs.</li>
+        </ol>
+    `,
+    snippet: `// Example of the "Desired State" for my Bastion project
+resource "google_compute_firewall" "allow_ssh" {
+  name    = "allow-ssh-bastion"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  // Only allow my specific IP to access the gateway
+  source_ranges = ["YOUR_EXTERNAL_IP/32"]
+  target_tags   = ["bastion"]
+}`
+},
 
 ];
 
