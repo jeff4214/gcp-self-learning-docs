@@ -322,6 +322,20 @@ const projectsData = [
     `,
     link: "#" 
 }
+    {
+    title: "🛡️ Automated Secure Bastion Architecture",
+    tech: "Terraform • GCP • Linux Security",
+    desc: `
+        <p>A fully automated "Jump Box" environment deployed via Infrastructure as Code (IaC). This project eliminates manual configuration errors by codifying networking and security policies.</p>
+        
+        <ul class="project-features">
+            <li><strong>Network Isolation:</strong> Private subnets with zero external IP exposure for internal nodes.</li>
+            <li><strong>Hardened Access:</strong> SSH traffic restricted via firewall tags, allowing entry only through a verified Bastion host.</li>
+            <li><strong>Reproducibility:</strong> The entire stack (VPC, Firewall, VMs) can be destroyed and recreated in under 2 minutes.</li>
+        </ul>
+    `,
+    link: "#logs" // This points back to your Log 7 Lab Report!
+},
 ];
 
 const conceptsData = [
