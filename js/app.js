@@ -335,7 +335,7 @@ const projectsData = [
         </ul>
     `,
     link: "#logs" // This points back to your Log 7 Lab Report!
-},
+}
 ];
 
 const conceptsData = [
