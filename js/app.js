@@ -91,7 +91,7 @@ const roadmapLevels = [
     project: `
         <strong>🚀 Project: The Terraform Bastion</strong><br>
         Automated a secure gateway and private node environment. 
-        <br><a href="#logs" class="btn-small" style="margin-top:10px; display:inline-block;">Read the full Lab Report</a>
+        <br><a href="#projects" class="nav-jump-btn btn-small">View Project Details</a>
     `,
     status: "In Progress 🔄",
     class: "status-in-progress"
