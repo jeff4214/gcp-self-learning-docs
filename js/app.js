@@ -118,60 +118,6 @@ const roadmapLevels = [
         "Automation is the baseline for professional Cloud Engineering."
     ]
 }
-2. Add "Lab Style" CSS
-To make the "Challenges" and "Code" sections look professional, add these styles to your style.css:
-
-CSS
-/* Debug/Challenge Box */
-.debug-box {
-    background: rgba(255, 107, 107, 0.1);
-    border-left: 4px solid #ff6b6b;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-.debug-box strong {
-    color: #ff6b6b;
-}
-
-/* Takeaways List */
-.takeaway-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.takeaway-item {
-    background: rgba(88, 166, 255, 0.05);
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: 1px inset rgba(88, 166, 255, 0.2);
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-}
-
-.takeaway-item::before {
-    content: "💡";
-    margin-right: 10px;
-},
-    {
-        id: 4,
-        title: "LEVEL 4 — Advanced Cloud (Future)",
-        goal: "Build scalable, production-ready systems.",
-        learned: [
-            "Load balancing",
-            "Kubernetes (GKE)",
-            "IAM and security",
-            "Monitoring and logging"
-        ],
-        skills: ["System design", "Container orchestration", "Observability"],
-        status: "Planned ⏳",
-        class: "status-planned"
-    }
 ];
 
 const logsData = [
