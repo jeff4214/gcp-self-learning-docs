@@ -74,27 +74,27 @@ const roadmapLevels = [
     },
     {
     id: 3,
-    title: "LEVEL 3 — Automation with Terraform (Current)",
-    goal: "Automate cloud infrastructure using code instead of manual configuration.",
+    title: "LEVEL 3 — Automation with Terraform",
+    isCurrent: true,
+    goal: "Transitioning from manual clicks to Infrastructure as Code (IaC).",
     learned: [
-        "Writing Terraform configuration files (.tf)",
-        "Connecting Terraform to Google Cloud",
-        "Defining virtual machines and network resources using code",
-        "Understanding Infrastructure as Code (IaC) concepts",
-        "Rebuilding manual infrastructure using Terraform"
+        "HCL Syntax (Providers, Resources, Variables)",
+        "Terraform State Management",
+        "Automating VPCs and Firewall Rules"
     ],
-    skills: ["Terraform Configs", "Providers & Resources", "init/plan/apply", "IaC Automation"],
+    skills: ["Terraform CLI", "IaC Design", "GCP API Auth"],
     proof: [
-        "Installed and configured Terraform locally",
-        "Authenticated Terraform with Google Cloud",
-        "Created first Terraform configuration (main.tf)",
-        "Planned and applied infrastructure changes using CLI",
-        "Started rebuilding manual setup using code"
+        "Successfully installed Terraform & set up GPG Keyrings",
+        "Authenticated via ADC (Application Default Credentials)",
+        "Deployed 2-tier VM architecture via HCL"
     ],
-    project: "🚀 Current Focus: Rebuilding my bastion architecture (public VM + private VM + firewall rules) using Terraform",
+    project: `
+        <strong>🚀 Project: The Terraform Bastion</strong><br>
+        Automated a secure gateway and private node environment. 
+        <br><a href="#logs" class="btn-small" style="margin-top:10px; display:inline-block;">Read the full Lab Report</a>
+    `,
     status: "In Progress 🔄",
-    class: "status-in-progress",
-    isCurrent: true
+    class: "status-in-progress"
 },
     {
         id: 4,
