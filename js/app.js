@@ -74,27 +74,89 @@ const roadmapLevels = [
     },
     {
     id: 3,
-    title: "LEVEL 3 — Automation with Terraform (Current)",
-    goal: "Automate cloud infrastructure using code instead of manual configuration.",
-    learned: [
-        "Writing Terraform configuration files (.tf)",
-        "Connecting Terraform to Google Cloud",
-        "Defining virtual machines and network resources using code",
-        "Understanding Infrastructure as Code (IaC) concepts",
-        "Rebuilding manual infrastructure using Terraform"
-    ],
-    skills: ["Terraform Configs", "Providers & Resources", "init/plan/apply", "IaC Automation"],
-    proof: [
-        "Installed and configured Terraform locally",
-        "Authenticated Terraform with Google Cloud",
-        "Created first Terraform configuration (main.tf)",
-        "Planned and applied infrastructure changes using CLI",
-        "Started rebuilding manual setup using code"
-    ],
-    project: "🚀 Current Focus: Rebuilding my bastion architecture (public VM + private VM + firewall rules) using Terraform",
-    status: "In Progress 🔄",
-    class: "status-in-progress",
-    isCurrent: true
+    title: "LEVEL 3 — Automation with Terraform",
+    isCurrent: true,
+    goal: "Move from manual cloud setup to automated infrastructure using code.",
+    content: `
+        <p>At this stage, I transitioned to <strong>Infrastructure as Code (IaC)</strong>. Instead of clicking buttons in the GCP Console, I define my entire data center in <code>.tf</code> files.</p>
+        
+        <h4>⚙️ Core Workflow</h4>
+        <div class="arch-flow">
+            <code>Write Code ➔ terraform plan ➔ terraform apply</code>
+        </div>
+
+        <h4>🛠️ What I Built</h4>
+        <ul class="project-features">
+            <li><strong>Provider Logic:</strong> Securely connecting Terraform to Google Cloud APIs.</li>
+            <li><strong>Dual-VM Architecture:</strong> Automated a Public Bastion and a Private "Internal" VM.</li>
+            <li><strong>State Management:</strong> Learned how Terraform tracks real-world resources via state files.</li>
+        </ul>
+
+        <h4>🧨 Challenges & Debugging</h4>
+        <div class="debug-box">
+            <p><strong>The Bug:</strong> Auth errors with <code>Application Default Credentials</code>.</p>
+            <p><strong>The Fix:</strong> Resolved using <code>gcloud auth application-default login</code> to bridge my local CLI with GCP.</p>
+        </div>
+    `,
+    codeSnippet: `resource "google_compute_instance" "public_vm" {
+  name         = "public-vm"
+  machine_type = "e2-micro"
+  
+  boot_disk {
+    initialize_params { image = "ubuntu-os-cloud/ubuntu-2204-lts" }
+  }
+
+  network_interface {
+    network = "default"
+    access_config {} // Provides Public IP
+  }
+  tags = ["bastion"]
+}`,
+    takeaways: [
+        "Infrastructure must be reproducible.",
+        "Terraform enforces 'Desired State', it doesn't just run commands.",
+        "Automation is the baseline for professional Cloud Engineering."
+    ]
+}
+2. Add "Lab Style" CSS
+To make the "Challenges" and "Code" sections look professional, add these styles to your style.css:
+
+CSS
+/* Debug/Challenge Box */
+.debug-box {
+    background: rgba(255, 107, 107, 0.1);
+    border-left: 4px solid #ff6b6b;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.debug-box strong {
+    color: #ff6b6b;
+}
+
+/* Takeaways List */
+.takeaway-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.takeaway-item {
+    background: rgba(88, 166, 255, 0.05);
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px inset rgba(88, 166, 255, 0.2);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+.takeaway-item::before {
+    content: "💡";
+    margin-right: 10px;
 },
     {
         id: 4,
