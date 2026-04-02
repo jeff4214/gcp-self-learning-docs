@@ -321,7 +321,7 @@ const projectsData = [
         <p><em>Status: ✅ Basic automation successful. Moving to multi-VM networking.</em></p>
     `,
     link: "#" 
-}
+},
     {
     title: "🛡️ Automated Secure Bastion Architecture",
     tech: "Terraform • GCP • Linux Security",
@@ -335,7 +335,7 @@ const projectsData = [
         </ul>
     `,
     link: "#logs" // This points back to your Log 7 Lab Report!
-}
+    }
 ];
 
 const conceptsData = [
