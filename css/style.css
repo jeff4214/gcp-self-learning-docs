@@ -526,3 +526,98 @@ code {
 .p2 { width: 80px; top: 60%; left: 70%; animation: movePacket 6s infinite 1s; }
 .p3 { width: 150px; top: 20%; left: 50%; animation: movePacket 5s infinite 2.5s; }
 .p4 { width: 100px; bottom: 20%; left: 30%; animation: movePacket 7s infinite 0.5s; }
+
+/* About Section Styling */
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-hero .subtitle {
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Values Cards */
+.about-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.value-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateX(5px);
+    border-color: var(--accent);
+}
+
+.value-card i {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.value-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+/* Status Badge */
+.current-status-badge {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(var(--accent-rgb), 0.1);
+    border-left: 4px solid var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0 8px 8px 0;
+}
+
+.pulse {
+    width: 10px;
+    height: 10px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(0, 255, 136, 0.4);
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { box-shadow: 0 0 0 0px rgba(0, 255, 136, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+    100% { box-shadow: 0 0 0 0px rgba(0, 255, 136, 0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
