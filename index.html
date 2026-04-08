@@ -25,7 +25,7 @@
         <nav>
             <button class="nav-btn active" data-target="home">Home</button>
             <button class="nav-btn" data-target="roadmap">Roadmap</button>
-            <button class="nav-btn" data-target="logs">Logs</button>
+            <button class="nav-btn" data-target="git-docs">Git</button> <button class="nav-btn" data-target="logs">Logs</button>
             <button class="nav-btn" data-target="projects">Projects</button>
             <button class="nav-btn" data-target="concepts">Concepts</button>
             <button class="nav-btn" data-target="about">About</button>
@@ -92,6 +92,119 @@
                 </div>
             </div>
             <div id="roadmap-timeline" class="timeline"></div>
+        </section>
+
+        <section id="git-docs" class="page-section hidden">
+            <div class="container">
+                <h2 class="gradient-text">Mastering the Time Machine: Git & GitHub</h2>
+                <p class="subtitle">My journey from local commits to professional version control workflows.</p>
+                <h3>Foundations & Branching</h3>
+                <p>Establishing the core cycle: <code>init</code>, <code>add</code>, <code>commit</code>, and <code>merge</code>.</p>
+                <ul class="git-list">
+                    <li>Isolation of features using <code>git switch -c</code>.</li>
+                    <li>Managing local history with <code>git log --oneline</code>.</li>
+                </ul>
+
+                <div class="git-card">
+                    <div class="git-badge badge-blue">Advanced</div>
+                    <h3>Remote Ops & Recovery</h3>
+                    <p>Connecting local labs to the cloud and mastering the "Undo" button.</p>
+                </div>
+
+                <div class="git-grid">
+                    <div class="git-card">
+                        <div class="git-badge">Basics</div>
+                        <h3>Foundations & Branching</h3>
+                        <p>Establishing the core cycle: <code>init</code>, <code>add</code>, <code>commit</code>, and <code>merge</code>.</p>
+                        <ul class="git-list">
+                            <li>Isolation of features using <code>git switch -c</code>.</li>
+                            <li>Managing local history with <code>git log --oneline</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="git-card">
+                        <div class="git-badge badge-blue">Advanced</div>
+                        <h3>Remote Ops & Recovery</h3>
+                        <p>Connecting local labs to the cloud and mastering the "Undo" button.</p>
+                        <ul class="git-list">
+                            <li>Secure authentication via <strong>SSH Keys</strong>.</li>
+                            <li>Time travel using <code>git reflog</code> and <code>reset --soft</code>.</li>
+                            <li>Stashing temporary work with <code>git stash</code>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="git-card">
+                        <div class="git-badge badge-gold">Pro</div>
+                        <h3>Professional Workflow</h3>
+                        <p>Maintaining a clean, linear history for collaborative engineering.</p>
+                        <ul class="git-list">
+                            <li>Cleaning history with <strong>Interactive Rebase</strong>.</li>
+                            <li><code>Squashing</code> messy commits into clean features.</li>
+                            <li>Mastering the <strong>Pull Request</strong> lifecycle.</li>
+                        </ul>    
+                    </div>
+                </div>
+
+                <div class="git-cta card">
+                    <h4>🚀 View my GitHub Activity</h4>
+                    <p>I apply these Git workflows to every Terraform deployment and Linux configuration.</p>
+                    <a href="https://github.com/YOUR_USERNAME" target="_blank" class="btn-small">Explore Repositories</a>
+                </div>
+                <div class="git-cheatsheet-container card">
+    <div class="cheatsheet-header">
+        <h3>🚀 The Cloud Engineer's Git Cheat Sheet</h3>
+        <p>A categorized reference for my daily version control workflows.</p>
+    </div>
+
+    <div class="cheatsheet-grid">
+        <div class="cs-category">
+            <h4><i class="fas fa-terminal"></i> Core Workflow</h4>
+            <ul>
+                <li><code>git init</code> <span>Create new local repo</span></li>
+                <li><code>git status</code> <span>Check changes & staging</span></li>
+                <li><code>git add .</code> <span>Stage all changes</span></li>
+                <li><code>git commit -m "msg"</code> <span>Save snapshot</span></li>
+                <li><code>git log --oneline</code> <span>View short history</span></li>
+                <li><code>git checkout [hash]</code> <span>Recover previous state</span></li>
+            </ul>
+        </div>
+
+        <div class="cs-category">
+            <h4><i class="fas fa-code-branch"></i> Branching</h4>
+            <ul>
+                <li><code>git branch</code> <span>List all branches</span></li>
+                <li><code>git switch <name></code> <span>Switch to branch</span></li>
+                <li><code>git switch -c <name></code> <span>Create + Switch</span></li>
+                <li><code>git merge <name></code> <span>Merge into current</span></li>
+                <li><code>git branch -d <name></code> <span>Delete merged branch</span></li>
+                <li><code>git branch -D <name></code> <span>Force delete branch</span></li>
+            </ul>
+        </div>
+
+        <div class="cs-category">
+            <h4><i class="fas fa-cloud-upload-alt"></i> Remote & GitHub</h4>
+            <ul>
+                <li><code>git remote add origin [url]</code> <span>Link to GitHub</span></li>
+                <li><code>git push -u origin main</code> <span>First push (upstream)</span></li>
+                <li><code>git push</code> <span>Upload commits</span></li>
+                <li><code>git pull</code> <span>Download updates</span></li>
+                <li><code>git clone [url]</code> <span>Download entire repo</span></li>
+                <li><code>git remote -v</code> <span>List remote URLs</span></li>
+            </ul>
+        </div>
+
+        <div class="cs-category">
+            <h4><i class="fas fa-key"></i> Authentication (SSH)</h4>
+            <ul>
+                <li><code>ssh-keygen -t ed25519</code> <span>Generate SSH Key</span></li>
+                <li><code>eval "$(ssh-agent -s)"</code> <span>Start SSH agent</span></li>
+                <li><code>ssh-add ~/.ssh/id_ed25519</code> <span>Add key to agent</span></li>
+                <li><code>cat ~/.ssh/id_ed25519.pub</code> <span>Copy Public Key</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+            </div>
         </section>
 
         <section id="logs" class="page-section hidden">

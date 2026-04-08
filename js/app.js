@@ -42,6 +42,21 @@ const roadmapLevels = [
         class: "status-completed"
     },
     {
+        id: 1.5,
+        title:"Level 1.5 — Git Mastery",
+        isCurrent: false,
+        goal: "Implementing professional version control for all infrastructure projects.",
+        learned: ["Branching Strategies", "SSH Security", "Interactive Rebasing"],
+        skills: ["Git", "GitHub", "SSH", "Code Review"],
+        project: `
+        <strong>🛠️ Skill Milestone: Version Control</strong><br>
+        Moving from manual saves to a professional linear history workflow.
+        <br><a href="#git-docs" class="nav-jump-btn btn-small" style="margin-top:10px; display:inline-block;">View Documentation</a>
+    `,
+        status: "Completed ✅",
+        class: "status-completed"
+    },
+    {
         id: 2,
         title: "LEVEL 2 — Networking & Security",
         goal: "Understand how real cloud infrastructure is designed and secured.",
